@@ -1,0 +1,43 @@
+<div id="nexf">
+  <div>
+    <span><br></span>
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary" data-loading-text="执行中..." id="exc-checked">执行勾选用例</button>
+      <button type="button" class="btn btn-primary" data-loading-text="执行中..." id="exc-all">执行全部用例</button>
+        <form method=POST enctype=multipart/form-data action="{{ url_for('case.upload') }}" style="float:right" >
+            {{ form.csrf_token }}
+            {% if form.errors %}
+              <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+            <label for="upload-case" class="btn btn-primary">导入</label>
+            {{ form.upload(id='upload-case', style='display:none') }}
+            <span id="photoCover"></span>
+            {{ form.submit(class='btn btn-primary') }}
+        </form>
+    </div>
+    <span><br></span>
+  </div>
+  <div class="panel panel-default">
+      <table class="table  table-striped table-bordered table-hover table-condensed" id="nexf-case-table">
+      <thead>
+        <tr>
+          <th class="text-center">
+            <label>
+              <!-- <input type="checkbox" name="checkcase" id="checkall" value=0> -->
+            </label>
+          </th>
+          <th class="text-center">ID</th>
+          <th>名称</th>
+          <th>描述</th>
+          <th class="text-center">操作</th>
+        </tr>
+      </thead>
+      <tbody id='nexf-tb'>
+      </tbody>
+    </table>
+  </div>
+<div class="M-box4" id="nexf-box" style="float:right"></div>
+</div>

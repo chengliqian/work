@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<!-- MAIN -->
+<div class="main">
+	<!-- MAIN CONTENT -->
+	<div class="main-content">
+		<div class="container-fluid">
+			<!-- OVERVIEW -->
+			<div class="panel panel-headline">
+				<div class="panel-heading">
+					<h3 class="panel-title" id="Overview">概览</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="metric">
+								<span class="icon"><i class="glyphicon glyphicon-user"></i></span>
+								<p>
+									<span class="number" id="users"></span>
+									<span class="title">用户数</span>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="metric">
+								<span class="icon"><i class="fa fa-shopping-bag"></i></span>
+								<p>
+									<span class="number" id="cases"></span>
+									<span class="title">用例数</span>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="metric">
+								<span class="icon"><i class="fa fa-eye"></i></span>
+								<p>
+									<span class="number" id="Visits">213</span>
+									<span class="title">访客数</span>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="metric">
+								<span class="icon"><i class="fa fa-bar-chart"></i></span>
+								<p>
+									<span class="number" id="Conversions">45%</span>
+									<span class="title">Conversions</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-heading">
+					<h3 class="panel-title" id="Server Monitor">服务器监控</h3>
+				</div>
+				<div class="panel-body">
+					<div id="line-chart">
+					</div>
+				</div>
+			</div>
+			<!-- END OVERVIEW -->
+		</div>
+	</div>
+	<!-- END MAIN CONTENT -->
+</div>
+<!-- END MAIN -->
+<script src="{{ url_for('static', filename='scripts/dashboard.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/server_monitor.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}
+	用例配置
+{% endblock %}
+
+{% block head %}
+	{{ super() }}
+	<script src="{{ url_for('static', filename='scripts/case_settings.js') }}"> </script>
+	{% endblock %}
+
+{% block content %}
+	<div class="main">
+		<div class="main-content">
+			<div class="container-fluid">
+				<div class="panel panel-headline">
+					<div class="panel-heading">
+						<h3 class="panel-title">URL配置</h3>
+						<p class="panel-subtitle" id="time"></p>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div>
+								<table class="table">
+									<thead>
+										<tr>
+											<td>
+												<div class="td-content">编号</div>
+											</td>
+											<td class="table-index sortable desc">
+												<div class="td-content">平台</div>
+											</td>
+											<td class="table-index sortable desc">
+												<div class="td-content">URL</div>
+											</td>
+										</tr>
+									</thead>
+									<tbody id="url-tb">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

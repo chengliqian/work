@@ -1,0 +1,12 @@
+castContext
+scheduleMap:媒介计划
+ideaMap：素材
+targetMap：广告量
+repairMap：补量
+consumeMap：消耗量
+posMap：资源位对应ID
+locationMap：广告位
+
+
+
+

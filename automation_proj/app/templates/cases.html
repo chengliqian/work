@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Suites{% endblock %}
+
+{% block head %}
+	{{ super() }}
+	<script src="{{ url_for('static', filename='scripts/nex_api.js') }}"> </script>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/pagination.css') }}">
+	<script src="{{ url_for('static', filename='vendor/jquery/jquery.pagination.js') }}"></script>
+	{% endblock %}
+
+{% block content %}
+<div class="main">
+	<div class="main-content">
+		<div class="container-fluid">
+			<div class="panel panel-headline">
+				{% for message in get_flashed_messages() %}
+				    <div class="alert alert-warning">
+				        <button type="button" class="close" data-dismiss="alert">&times;</button>
+				        {{ message }}
+				    </div>
+				{% endfor %}
+				<div class="panel-body">
+					<ul id="myTab" class="nav nav-tabs">
+						<!-- 易品:1, nexapi:2, nex后台:3, nex前台:4, omp:5 -->
+						<li id="li-yp" class="active">
+							<a href="#case" data-toggle="tab" onclick="tab_tb(this)" value=1>易品</a>
+						</li>
+						<li id="li-omp">
+							<a href="#case" data-toggle="tab" onclick="tab_tb(this)" value=5>运管</a>
+						</li>
+						<li id="li-nexapi">
+							<a href="#case" data-toggle="tab" onclick="tab_tb(this)" value=2>NEXAPI</a>
+						</li>
+						<li id="li-nexb">
+							<a href="#case" data-toggle="tab" onclick="tab_tb(this)" value=3>NEX管理后台</a>
+						</li>
+						<li id="li-nexf">
+							<a href="#case" data-toggle="tab" onclick="tab_tb(this)" value=4>NEX交易平台</a>
+						</li>
+                        <li id="li-ypdata">
+							<a href="#case" data-toggle="tab" onclick="tab_tb(this)" value=6>易品数据管理</a>
+						</li>
+					</ul>
+					<div id="nexapi-tab" class="tab-content">
+						<div class="tab-pane fade in active" id="case">
+							{% include '_case.html' %}
+						</div>
+					</div>
+					<div class="text-center"><span id="info" class="center"></span><br></div>
+ 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

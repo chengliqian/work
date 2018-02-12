@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Charts{% endblock %}
+
+{% block head %}
+    <script>var $SCRIPT_ROOT = {{request.script_root|tojson|safe}}</script>
+    {{ super() }}
+{% endblock %}
+
+<body>
+	{% block content %}
+	<!-- MAIN -->
+	<div class="main">
+		<!-- MAIN CONTENT -->
+		<div class="main-content">
+			<div class="container-fluid">
+				<!-- OVERVIEW -->
+				<div class="panel panel-headline">
+					<div class="panel-heading">
+						<h3 class="panel-title">Overview</h3>
+						<p class="panel-subtitle" id="show"></p>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="metric">
+									<span class="icon"><i class="glyphicon glyphicon-user"></i></span>
+									<p>
+										<span class="number"></span>
+										<span class="title">Users</span>
+									</p>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="metric">
+									<span class="icon"><i class="fa fa-shopping-bag"></i></span>
+									<p>
+										<span class="number">213</span>
+										<span class="title">Cases</span>
+									</p>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="metric">
+									<span class="icon"><i class="fa fa-eye"></i></span>
+									<p>
+										<span class="number">213</span>
+										<span class="title">Visits</span>
+									</p>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="metric">
+									<span class="icon"><i class="fa fa-bar-chart"></i></span>
+									<p>
+										<span class="number">45%</span>
+										<span class="title">Conversions</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-heading">
+						<h3 class="panel-title">Server Monitor</h3>
+					</div>
+					<div class="panel-body">
+						<div id="line-chart">
+								<div class="col-md-3">
+							<script src="{{ url_for('static', filename='scripts/server_monitor.js') }}"></script>
+						</div>
+					</div>
+				</div>
+				<!-- END OVERVIEW -->
+			</div>
+		</div>
+		<!-- END MAIN CONTENT -->
+	</div>
+	<!-- END MAIN -->
+    {% endblock %}
+</body>

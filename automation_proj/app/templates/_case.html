@@ -1,0 +1,67 @@
+<div id="nex-api">
+  <div>
+    <span><br></span>
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary" data-loading-text="执行中..." id="exc-checked">执行勾选用例</button>
+      <button type="button" class="btn btn-primary" data-loading-text="执行中..." id="exc-all">执行全部用例</button>
+        <form id="uploadform" method="post" enctype="multipart/form-data" style="float:right">
+          <label for="testsubmit" class="btn btn-primary" style="float:right">上传用例</label>
+          <input name="file" type="file" id="testsubmit" style='display:none'>
+          <button id="submit" type="button" style="visibility:hidden;">Upload</button>
+        </form>
+        <!-- <p><span id="resultFilename"></span></p> -->
+        <!-- <p><span id="resultFilesize"></span></p> -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right">上传用例</button>
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm" role="document" style="height:200px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title">上传用例</h4>
+              </div>
+              <div class="modal-body text-center">
+                <p>逗你玩～</p>
+                <form method=POST enctype=multipart/form-data action="{{ url_for('case.upload') }}">
+                    {{ form.csrf_token }}
+                    {% if form.errors %}
+                      <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ form.errors }}
+                        </div>
+                    {% endif %}
+                    <label for="upload-case" class="btn btn-primary" style="padding:3px 15px">导入</label>
+                    {{ form.upload(id='upload-case', style='display:none') }}
+                    <label for="upload-submit" data-dismiss="modal"></label>
+                    {{ form.submit(id='upload-submit', class='btn btn-primary', style="padding:3px 15px") }}
+                </form>
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+    </div>
+    <span><br></span>
+  </div>
+  <div class="panel panel-default">
+      <table class="table  table-striped table-bordered table-hover table-condensed" id="case_table">
+      <thead>
+        <tr>
+          <th class="text-center">
+            <label>
+              <input type="checkbox" name="checkcase" id="checkall" value=0>
+            </label>
+          </th>
+          <th class="text-center">ID</th>
+          <th>名称</th>
+          <th>描述</th>
+          <th class="text-center">操作</th>
+        </tr>
+      </thead>
+      <tbody id='case-tb'>
+      </tbody>
+    </table>
+    {% include '_case_show.html' %}
+    {% include '_case_update.html' %}
+  </div>
+<div class="M-box4" id="box" style="float:right"></div>
+</div>
